@@ -147,3 +147,17 @@ button {
 .delete {
   color: crimson;
 }
+
+.date {
+  margin-top: -0.8rem;
+  padding-left: 1rem;
+  font-size: 0.75rem;
+  color: var(--gray);
+}
+
+.edit_date {
+  margin-top: -0.8rem;
+  padding-left: 1rem;
+  font-size: 0.75rem;
+  color: var(--pink);
+}

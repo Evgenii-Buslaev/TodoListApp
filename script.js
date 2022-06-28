@@ -3,13 +3,29 @@ const addButton = document.querySelector(".new-task-submit");
 const addedTasksContainer = document.querySelector(".container-output");
 const addedTask = document.querySelector(".added-tasks");
 
+let monthArray = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "June",
+  "July",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+
 addButton.addEventListener("click", () => {
+  // check if user did't fill in the form
   let taskText = input.value;
   if (!taskText) {
     alert("Add some text");
     return;
   }
-
+  // adding a new task block
   let divTask = document.createElement("div");
   divTask.classList.add("tasks");
   addedTasksContainer.appendChild(divTask);
@@ -35,6 +51,8 @@ addButton.addEventListener("click", () => {
   divBtns.appendChild(editBtn);
   divBtns.appendChild(deleteBtn);
 
+  //functions of the 'a new task''s block:
+
   editBtn.addEventListener("click", () => {
     if (editBtn.innerText.toLocaleLowerCase() == "edit") {
       taskOut.removeAttribute("readonly");
@@ -44,12 +62,38 @@ addButton.addEventListener("click", () => {
     } else {
       taskOut.setAttribute("readonly", "readonly");
       editBtn.innerText = "Edit";
+
+      // working with time
+      const editDate = new Date();
+      const editDay = date.getDate();
+      const editMonth = date.getMonth();
+      const editHour = date.getHours();
+      const editMinutes = date.getMinutes();
+
+      let editStr = `Edited on ${editDay} ${monthArray[editMonth]} at ${editHour}:${editMinutes}`;
+      dateDiv.innerText = editStr;
+      dateDiv.classList.add("edit_date");
     }
   });
 
   deleteBtn.addEventListener("click", () => {
     addedTasksContainer.removeChild(divTask);
+    dateDiv.remove();
   });
 
   input.value = "";
+  // working with the time
+  const date = new Date();
+  const day = date.getDate();
+  const month = date.getMonth();
+  const hour = date.getHours();
+  const minutes = date.getMinutes();
+
+  const str = `Created on ${day} ${monthArray[month]} at ${hour}:${minutes}`;
+
+  let dateDiv = document.createElement("div");
+  dateDiv.classList.add("date");
+
+  dateDiv.innerText = str;
+  addedTasksContainer.append(dateDiv);
 });
