@@ -8,19 +8,26 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="container">
-      <h1>TASK LIST FOR TODAY</h1>
+    <div class="container-input">
+      <h1>Task list for today</h1>
       <div class="addingtask">
-        <input type="text" />
-        <button type="submit">Add task</button>
-      </div>
-      <div class="tasks">
-        <input type="text" readonly />
-        <div class="clock">Added at 00:00</div>
-        <button>Edit</button>
-        <button>Delete</button>
+        <input class="new-task-input" type="text" />
+        <button class="new-task-submit" type="submit">Add task</button>
       </div>
     </div>
+
+    <div class="container-output">
+      <h2>Current tasks:</h2>
+      <div class="tasks">
+        <input id="task" type="text" />
+        <div class="edit-buttons">
+          <button class="edit">Edit</button>
+          <button class="delete">Delete</button>
+        </div>
+      </div>
+      <div class="clock">Added at 00:00</div>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
