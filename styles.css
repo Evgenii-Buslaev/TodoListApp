@@ -111,6 +111,13 @@ button {
   display: block;
   transition: 0.4s;
 }
+#task_edited {
+  color: #ec4899;
+  font-size: 1.125rem;
+  width: 100%;
+  display: block;
+  transition: 0.4s;
+}
 
 .edit-buttons {
   display: flex;
@@ -126,7 +133,8 @@ button {
   opacity: 0.6;
 }
 
-.edit {
+.edit,
+.save {
   background-image: linear-gradient(to right, var(--pink), var(--purple));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
