@@ -25,7 +25,7 @@ body {
 .container-input,
 .container-output {
   padding: 2rem 1rem;
-  max-width: 800px;
+  max-width: 900px;
   width: 100%;
   margin: 0 auto;
 }
@@ -62,7 +62,8 @@ button {
   outline: none;
   background: none;
 }
-.new-task-input {
+.new-task-input,
+.new-task-deadline-input {
   flex: 1 1 0%;
   background-color: var(--darker);
   padding-left: 1rem;
@@ -71,10 +72,26 @@ button {
   color: var(--light);
   font-size: 1.25rem;
 }
+.new-task-deadline-input {
+  max-width: 20%;
+}
+
+.paragragh {
+  margin-top: 0.3rem;
+  margin-bottom: 0.5rem;
+  padding-left: 1rem;
+  font-size: 0.9rem;
+  color: var(--gray);
+}
 
 .new-task-input::placeholder {
   color: var(--gray);
 }
+
+.new-task-deadline-input::placeholder {
+  color: var(--gray);
+}
+
 .new-task-submit {
   margin-left: 1rem;
   color: var(--pink);
@@ -161,4 +178,8 @@ button {
   padding-left: 1rem;
   font-size: 0.75rem;
   color: var(--pink);
+}
+
+.dates {
+  display: flex;
 }
