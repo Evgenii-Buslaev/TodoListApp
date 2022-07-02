@@ -55,7 +55,7 @@ addButton.addEventListener("click", () => {
   //functions of the 'a new task''s block:
 
   editBtn.addEventListener("click", () => {
-    if (editBtn.innerText.toLocaleLowerCase() == "edit") {
+    if (editBtn.innerText.toLowerCase() == "edit") {
       taskOut.removeAttribute("readonly");
       taskOut.style.color = "#ec4899";
       taskOut.focus();
@@ -80,6 +80,7 @@ addButton.addEventListener("click", () => {
   deleteBtn.addEventListener("click", () => {
     addedTasksContainer.removeChild(divTask);
     dateDiv.remove();
+    dateTimerCont.remove();
   });
 
   input.value = "";
@@ -103,11 +104,42 @@ addButton.addEventListener("click", () => {
   addedTasksContainer.append(dateTimerCont);
 
   // wordking with deadlines
+  let start;
   if (deadLine.value <= 100 && deadLine.value > 0) {
+    start = Date.now();
+    let hours = deadLine.value - 1;
     let divDeadLine = document.createElement("div");
-    divDeadLine.classList.add("date");
-    divDeadLine.innerText = "00:00:00 left";
+    divDeadLine.classList.add("timer");
+    let seconds = 59;
+    let minutes = 59;
     dateTimerCont.appendChild(divDeadLine);
+    let timer = setInterval(() => {
+      let time = Date.now();
+      seconds--;
+      if (hours.toString().length < 2) {
+        hours = "0" + hours;
+      }
+      if (minutes.toString().length < 2) {
+        minutes = "0" + minutes;
+      }
+      if (seconds.toString().length < 2) {
+        seconds = "0" + seconds;
+      }
+      if (seconds < 0) {
+        minutes--;
+        seconds = 59;
+      }
+      if (minutes < 0) {
+        hours--;
+        minutes = 59;
+      }
+      divDeadLine.innerText = `${hours}:${minutes}:${seconds}`;
+      if ((time - start) / 3600000 > +hours + 1) {
+        clearInterval(timer);
+        divDeadLine.innerText = `You ran out of time`;
+        alert("You ran out of time");
+      }
+    }, 1000);
   } else {
     if (deadLine.value > 100)
       alert(
@@ -117,19 +149,3 @@ addButton.addEventListener("click", () => {
   }
   deadLine.value = "";
 });
-
-function deadlineTimer(s) {
-  s--;
-  if (h.length < 2) {
-    h = "0" + h;
-  }
-  if (m.length < 2) {
-    m = "0" + m;
-  }
-  if (s.length < 2) {
-    s = "0" + s;
-  }
-
-  let clockString = h + ":" + m + ":" + s;
-  return clockString;
-}

@@ -172,6 +172,14 @@ button {
   color: var(--gray);
 }
 
+.timer {
+  margin-top: -1.2rem;
+  margin-bottom: 0.5rem;
+  padding-left: 1rem;
+  font-size: 0.75rem;
+  color: var(--pink);
+}
+
 .edit_date {
   margin-top: -1.2rem;
   margin-bottom: 0.5rem;
