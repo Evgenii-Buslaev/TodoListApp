@@ -5,26 +5,27 @@ const addedTask = document.querySelector(".added-tasks");
 const deadLine = document.querySelector(".new-task-deadline-input");
 const clearAllBtn = document.querySelector(".clear-tasks");
 const secondHeader = document.querySelector("h2");
+
 let monthArray = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "June",
-  "July",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
+  "января",
+  "февраля",
+  "марта",
+  "апреля",
+  "мая",
+  "июня",
+  "июля",
+  "августа",
+  "сентября",
+  "октября",
+  "ноября",
+  "декабря",
 ];
 
 addButton.addEventListener("click", function addTask() {
   // check if user did't fill in the form
   let taskText = input.value;
   if (!taskText) {
-    alert("Add some text");
+    alert("Пожалуйста, напишите текст");
     return;
   }
   // adding a new task block
@@ -44,11 +45,11 @@ addButton.addEventListener("click", function addTask() {
 
   let editBtn = document.createElement("button");
   editBtn.classList.add("edit");
-  editBtn.innerText = "Edit";
+  editBtn.innerText = "Изменить";
 
   let deleteBtn = document.createElement("button");
   deleteBtn.classList.add("delete");
-  deleteBtn.innerText = "Delete";
+  deleteBtn.innerText = "Удалить";
 
   divBtns.appendChild(editBtn);
   divBtns.appendChild(deleteBtn);
@@ -56,14 +57,14 @@ addButton.addEventListener("click", function addTask() {
   //functions of the 'a new task''s block:
 
   editBtn.addEventListener("click", () => {
-    if (editBtn.innerText.toLowerCase() == "edit") {
+    if (editBtn.innerText.toLowerCase() == "изменить") {
       taskOut.removeAttribute("readonly");
       taskOut.style.color = "#ec4899";
       taskOut.focus();
-      editBtn.innerText = "Save";
+      editBtn.innerText = "Сохранить";
     } else {
       taskOut.setAttribute("readonly", "readonly");
-      editBtn.innerText = "Edit";
+      editBtn.innerText = "Изменить";
 
       // working with time
       const editDate = new Date();
@@ -99,9 +100,9 @@ addButton.addEventListener("click", function addTask() {
   const minutes = date.getMinutes();
   let str;
   if (minutes.length < 2) {
-    str = `Created on ${day} ${monthArray[month]} at ${hour}:0${minutes}`;
+    str = `Создано ${day}-ого ${monthArray[month]} в ${hour}:0${minutes}`;
   }
-  str = `Created on ${day} ${monthArray[month]} at ${hour}:${minutes}`;
+  str = `Создано ${day}-ого ${monthArray[month]} в ${hour}:${minutes}`;
 
   let dateTimerCont = document.createElement("div");
   dateTimerCont.classList.add("dates");
@@ -151,16 +152,17 @@ addButton.addEventListener("click", function addTask() {
       divDeadLine.innerText = `${hours}:${minutes}:${seconds}`;
       if ((time - start) / 3600000 > +hours + 1) {
         clearInterval(timer);
-        divDeadLine.innerText = `You ran out of time`;
-        alert("You ran out of time");
+        divDeadLine.innerText = `Время закончилось.`;
+        alert("Время закончилось");
       }
     }, 1000);
   } else {
     if (deadLine.value > 100)
       alert(
-        `Please, add your task with deadline later. You have enough time yet`
+        `Пожалуйста, добавьте эту задачу без срока, или добавьте позже. У Вас еще достаточно времени`
       );
-    if (deadLine.value < 0) alert(`Wrong integer`);
+    if (deadLine.value < 0)
+      alert(`Отрицательное значение. Введите, пожалуйста, положительное`);
   }
   deadLine.value = "";
 
@@ -173,10 +175,10 @@ addButton.addEventListener("click", function addTask() {
 if (localStorage.getItem("tasks")) {
   let data = JSON.parse(localStorage.getItem("tasks"));
   addedTasksContainer.innerHTML = data;
-  secondHeader.innerText = "You had the following tasks:";
+  secondHeader.innerText = "У Вас были следующие задачи:";
   let paragragh = document.createElement("p");
   paragragh.innerText =
-    "You had these task before you reload the page. You can clear this state by clicking the C/A button.";
+    "У Вас были эти задачи до того, как Вы перезагрузили страницу. Вы можете продолжить работу, воспользовавшись кнопкой 'Очистить'";
 
   addedTasksContainer.prepend(paragragh);
 }
@@ -186,5 +188,5 @@ clearAllBtn.onclick = () => {
 };
 
 if (document.documentElement.clientWidth < 430) {
-  deadLine.placeholder = "H-rs";
+  deadLine.placeholder = "Ч.";
 }

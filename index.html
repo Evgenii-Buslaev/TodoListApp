@@ -21,24 +21,24 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h1>Task list for today</h1>
+    <h1>Список дел на сегодня</h1>
     <div class="container-input">
       <div class="addingtask">
-        <input class="new-task-input" type="text" placeholder="Your task" />
+        <input class="new-task-input" type="text" placeholder="Задача" />
         <input
           class="new-task-deadline-input"
           type="number"
-          placeholder="Hours"
+          placeholder="Срок"
         />
         <div class="adding-buttons">
-          <button class="new-task-submit" type="submit">Add</button>
-          <button class="clear-tasks" type="submit">C/A</button>
+          <button class="new-task-submit" type="submit">Добавить</button>
+          <button class="clear-tasks" type="submit">Очистить</button>
         </div>
       </div>
       <p class="paragragh">
-        The line 'hours' means the number of hours you've got to make the task
-        done(integer or number with floating dot). You can also add tasks
-        without any deadlines.
+        Строка "срок" (или "ч." на узких экранах) подразумевает время в часах,
+        за которое Вы хотите справиться с задачей. Обратите внимание, что для
+        ввода минут число нужно перевести в часы (30 минут - 0,5 часа).
       </p>
     </div>
     <!--  <div class="container-timer">
@@ -48,11 +48,12 @@
         <button class="new-task-submit" type="submit">Add deadline</button>
       </div>
     </div> -->
-    <h2>Current tasks:</h2>
+    <h2>Текущие задачи:</h2>
     <div class="container-output">
       <div class="added-tasks"></div>
     </div>
 
+    <p class="note"></p>
     <script src="script.js"></script>
   </body>
 </html>
