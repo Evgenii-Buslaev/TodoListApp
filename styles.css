@@ -88,6 +88,12 @@ body {
   .new-task-deadline-input {
     max-width: 100%;
   }
+  .edit-buttons button {
+    cursor: pointer;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    transition: 0.4s;
+  }
 }
 .container-output p {
   font-size: 1rem;
@@ -191,6 +197,7 @@ button {
 }
 
 #task {
+  display: inline;
   color: #fff;
   font-size: 1.125rem;
   width: 100%;

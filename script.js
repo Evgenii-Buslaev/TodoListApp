@@ -71,8 +71,13 @@ addButton.addEventListener("click", function addTask() {
       const editMonth = editDate.getMonth();
       const editHour = editDate.getHours();
       const editMinutes = editDate.getMinutes();
+      let editStr;
 
-      let editStr = `Edited on ${editDay} ${monthArray[editMonth]} at ${editHour}:${editMinutes}`;
+      if (editMinutes.length < 2) {
+        editStr = `Edited on ${editDay} ${monthArray[editMonth]} at ${editHour}:)${editMinutes}`;
+      }
+      editStr = `Edited on ${editDay} ${monthArray[editMonth]} at ${editHour}:${editMinutes}`;
+
       dateDiv.innerText = editStr;
       dateDiv.classList.add("edit_date");
     }
@@ -92,8 +97,12 @@ addButton.addEventListener("click", function addTask() {
   const month = date.getMonth();
   const hour = date.getHours();
   const minutes = date.getMinutes();
+  let str;
+  if (minutes.length < 2) {
+    str = `Created on ${day} ${monthArray[month]} at ${hour}:0${minutes}`;
+  }
+  str = `Created on ${day} ${monthArray[month]} at ${hour}:${minutes}`;
 
-  const str = `Created on ${day} ${monthArray[month]} at ${hour}:${minutes}`;
   let dateTimerCont = document.createElement("div");
   dateTimerCont.classList.add("dates");
 
@@ -163,9 +172,6 @@ addButton.addEventListener("click", function addTask() {
 
 if (localStorage.getItem("tasks")) {
   let data = JSON.parse(localStorage.getItem("tasks"));
-
-  console.log(secondHeader);
-
   addedTasksContainer.innerHTML = data;
   secondHeader.innerText = "You had the following tasks:";
   let paragragh = document.createElement("p");
