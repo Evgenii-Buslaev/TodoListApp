@@ -113,6 +113,10 @@ addButton.addEventListener("click", function addTask() {
     divDeadLine.classList.add("timer");
     let seconds = 59;
     let minutes = 59;
+    if (deadLine.value > 0 && deadLine.value < 1) {
+      hours = 0;
+      minutes = +deadLine.value * 100;
+    }
     dateTimerCont.appendChild(divDeadLine);
     let timer = setInterval(() => {
       let time = Date.now();
