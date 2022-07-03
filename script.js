@@ -75,9 +75,9 @@ addButton.addEventListener("click", function addTask() {
       let editStr;
 
       if (editMinutes.length < 2) {
-        editStr = `Edited on ${editDay} ${monthArray[editMonth]} at ${editHour}:)${editMinutes}`;
+        editStr = `Изменено ${editDay}-ого ${monthArray[editMonth]} в ${editHour}:)${editMinutes}`;
       }
-      editStr = `Edited on ${editDay} ${monthArray[editMonth]} at ${editHour}:${editMinutes}`;
+      editStr = `Изменено ${editDay}-ого ${monthArray[editMonth]} в ${editHour}:${editMinutes}`;
 
       dateDiv.innerText = editStr;
       dateDiv.classList.add("edit_date");
