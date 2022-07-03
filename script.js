@@ -115,7 +115,8 @@ addButton.addEventListener("click", function addTask() {
     let minutes = 59;
     if (deadLine.value > 0 && deadLine.value < 1) {
       hours = 0;
-      minutes = +deadLine.value * 100;
+      minutes = 60 * deadLine.value;
+      seconds = 0;
     }
     dateTimerCont.appendChild(divDeadLine);
     let timer = setInterval(() => {
