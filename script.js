@@ -101,8 +101,9 @@ addButton.addEventListener("click", function addTask() {
   let str;
   if (minutes.length < 2) {
     str = `Создано ${day}-ого ${monthArray[month]} в ${hour}:0${minutes}`;
+  } else {
+    str = `Создано ${day}-ого ${monthArray[month]} в ${hour}:${minutes}`;
   }
-  str = `Создано ${day}-ого ${monthArray[month]} в ${hour}:${minutes}`;
 
   let dateTimerCont = document.createElement("div");
   dateTimerCont.classList.add("dates");
