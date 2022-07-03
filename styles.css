@@ -30,18 +30,25 @@ body {
   margin: 0 auto;
 }
 
-.container-input h1 {
+.container-output p {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--gray);
+  margin: 1rem auto;
+}
+h1 {
   font-size: 2.5rem;
   font-weight: 300;
   color: var(--gray);
-  margin-bottom: 1rem;
+  margin: 0 auto;
+  margin-top: 2rem;
 }
 
-.container-output h2 {
+h2 {
   font-size: 1.5rem;
   font-weight: 300;
   color: var(--gray);
-  margin-bottom: 1rem;
+  margin: 0 auto;
 }
 
 .addingtask {
@@ -92,7 +99,8 @@ button {
   color: var(--gray);
 }
 
-.new-task-submit {
+.new-task-submit,
+.clear-tasks {
   margin-left: 1rem;
   color: var(--pink);
   font-size: 1.25rem;
@@ -104,10 +112,12 @@ button {
   transition: 0.4s;
 }
 
-.new-task-submit:hover {
+.new-task-submit:hover,
+.clear-tasks:hover {
   opacity: 0.8;
 }
-.new-task-submit:active {
+.new-task-submit:active,
+.clear-tasks:active {
   opacity: 0.6;
 }
 

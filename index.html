@@ -4,27 +4,28 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <!--  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="manifest" href="/site.webmanifest" /> -->
     <title>TODO LIST</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <h1>Task list for today</h1>
     <div class="container-input">
-      <h1>Task list for today</h1>
       <div class="addingtask">
         <input class="new-task-input" type="text" placeholder="Your task" />
         <input
           class="new-task-deadline-input"
           type="number"
-          placeholder="Deadline"
+          placeholder="Hours"
         />
-        <button class="new-task-submit" type="submit">Add task</button>
+        <button class="new-task-submit" type="submit">Add</button>
+        <button class="clear-tasks" type="submit">C/A</button>
       </div>
       <p class="paragragh">
-        Deadline means the number of hours you've got to make the task
+        The line 'hours' means the number of hours you've got to make the task
         done(integer). You can also add tasks without any deadlines.
       </p>
     </div>
@@ -35,9 +36,8 @@
         <button class="new-task-submit" type="submit">Add deadline</button>
       </div>
     </div> -->
-
+    <h2>Current tasks:</h2>
     <div class="container-output">
-      <h2>Current tasks:</h2>
       <div class="added-tasks"></div>
     </div>
 

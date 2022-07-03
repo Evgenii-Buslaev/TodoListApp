@@ -3,7 +3,8 @@ const addButton = document.querySelector(".new-task-submit");
 const addedTasksContainer = document.querySelector(".container-output");
 const addedTask = document.querySelector(".added-tasks");
 const deadLine = document.querySelector(".new-task-deadline-input");
-
+const clearAllBtn = document.querySelector(".clear-tasks");
+const secondHeader = document.querySelector("h2");
 let monthArray = [
   "Jan",
   "Feb",
@@ -19,7 +20,7 @@ let monthArray = [
   "Dec",
 ];
 
-addButton.addEventListener("click", () => {
+addButton.addEventListener("click", function addTask() {
   // check if user did't fill in the form
   let taskText = input.value;
   if (!taskText) {
@@ -148,4 +149,27 @@ addButton.addEventListener("click", () => {
     if (deadLine.value < 0) alert(`Wrong integer`);
   }
   deadLine.value = "";
+
+  // working with the local storage
+  localStorage.setItem("tasks", JSON.stringify(addedTasksContainer.innerHTML));
 });
+
+// working with the local storage
+
+if (localStorage.getItem("tasks")) {
+  let data = JSON.parse(localStorage.getItem("tasks"));
+
+  console.log(secondHeader);
+
+  addedTasksContainer.innerHTML = data;
+  secondHeader.innerText = "You had the following tasks:";
+  let paragragh = document.createElement("p");
+  paragragh.innerText =
+    "You had these task before you reload the page. You can clear this state by clicking the C/A button.";
+
+  addedTasksContainer.prepend(paragragh);
+}
+clearAllBtn.onclick = () => {
+  localStorage.clear();
+  location.reload();
+};
