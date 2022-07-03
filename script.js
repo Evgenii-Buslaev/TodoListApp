@@ -173,3 +173,7 @@ clearAllBtn.onclick = () => {
   localStorage.clear();
   location.reload();
 };
+
+if (document.documentElement.clientWidth < 430) {
+  deadLine.placeholder = "H-rs";
+}
